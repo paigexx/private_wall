@@ -1,0 +1,58 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* log in page */
+.container_login{
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(255, 217, 222);
+  gap: 10em;
+  padding: 5em 10em;
+}
+
+.login{
+  flex:1;
+}
+
+.registration{
+  flex: 3;
+}
+
+/* private wall */
+.container_container{
+  background-color: rgb(255, 217, 222);
+}
+
+.container_wall{
+  padding: 3em 0;
+  background-color: rgb(255, 217, 222);
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 3em;
+
+}
+.header_container{
+  width: 100%;
+  background-color: rgb(235, 235, 235);
+  height: 100px;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 100px;
+  background-color: rgb(235, 235, 235);
+  margin: 0 auto;
+}
+
+.left_header{
+  display: flex;
+  gap: 1em;
+}
