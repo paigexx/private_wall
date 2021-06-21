@@ -32,8 +32,7 @@ class User:
         # if not email then add a conditional 
         if len(results) < 1:
             return False
-        print(results)
-        return (cls(results[0])) 
+        return cls(results[0])
 
 
 
@@ -41,29 +40,30 @@ class User:
     def validate(data):
         is_valid = True
 
-        if len(data["first_name"]) <2: 
-            flash("Your lirst name must be longer than 2 characters.", "first_name")
+        if len(data["first_name"]) <2 or not data["first_name"].isalpha(): 
+            flash("Your first name must be longer than 2 characters of the English alphabet.", "first_name")
             is_valid = False
 
-        if not data["first_name"].isalpha():
-            flash("You name must be within the characters of the English alphabet.", "first_name")
-            is_valid = False
-
-        if len(data["last_name"]) < 2: 
+    
+        if len(data["last_name"]) < 2 or not data["last_name"].isalpha(): 
             flash("Your first name must be longer than 2 characters.", "last_name")
             is_valid = False
 
-        if not data["last_name"].isalpha():
-            flash("You name must be within the characters of the English alphabet.", "last_name")
+        if User.get_by_email(data): 
+            flash("Email address already exsits!")
             is_valid = False
-
         
         if not email_regex.match(data["email"]):
             flash("Please enter a valid email.", "email")
             is_valid = False
 
+        if len(data["password"]) < 8:
+            flash("Password must be 8 or more characters")
+            is_valid = False
+
         if data["password"] != data["confirm_password"]:
             flash("Your passwords must match.", "password")
+            is_valid = False
 
 
         return is_valid
